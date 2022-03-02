@@ -1,1 +1,0 @@
-import{B as e}from"./Banner.1db58eda.js";import{c as o,e as r,m as t,P as a}from"./vendor.3a968c7d.js";import"./index.020b4e0a.js";import"./plugin-vue_export-helper.21dcd24c.js";const _=o({setup(n){return(c,m)=>(r(),t("div",null,[a(e)]))}});export{_ as default};
