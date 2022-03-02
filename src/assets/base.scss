@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --el-color-primary: #34d399 !important;
+  --el-color-primary-light-1: #065f46 !important;
+  --el-color-primary-light-2: #047857 !important;
+  --el-color-primary-light-3: #059669 !important;
+  --el-color-primary-light-4: #10b981 !important;
+  --el-color-primary-light-5: #34d399 !important;
+  --el-color-primary-light-6: #6ee7b7 !important;
+  --el-color-primary-light-7: #a7f3d0 !important;
+  --el-color-primary-light-8: #d1fae5 !important;
+  --el-color-primary-light-9: #ecfdf5 !important;
+  --el-color-primary-dark-2: #337ecc !important;
+}
+
+html, body {
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  @apply text-slate-700;
+}
+
+.hover-text {
+  @apply hover:text-emerald-400 cursor-pointer;
+}
+
+.badge {
+  .el-badge__content.is-fixed {
+    @apply scale-75 bg-white text-slate-500 text-xs bg-opacity-50 border-0 left-2 -top-2;
+  }
+}
