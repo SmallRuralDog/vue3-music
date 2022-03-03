@@ -1,4 +1,4 @@
-import {first, sampleSize, chunk} from 'lodash'
+import {first, sampleSize, chunk, trimEnd} from 'lodash'
 import dayjs from 'dayjs'
 
 declare global {
@@ -27,6 +27,8 @@ declare global {
          * 转换成int类型
          */
         toInt(this: string): number
+
+        trimEnd(this: string, chars?: string): string
     }
 
     interface Number {
@@ -44,6 +46,10 @@ Array.prototype.chunk = function <T>(this: T[], size: number): T[][] {
 }
 String.prototype.toInt = function (this: string): number {
     return parseInt(this)
+}
+
+String.prototype.trimEnd = function (this: string, chars: string = ' '): string {
+    return trimEnd(this, chars)
 }
 
 Number.prototype.toDate = function (this: number, format: string = 'YYYY-MM-DD'): string {

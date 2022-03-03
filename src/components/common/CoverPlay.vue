@@ -11,7 +11,7 @@
         v-if="showPlayCount"
         class="play-count">
       <IconPark :icon="video?Play:Headset" class="mr-1" :size="12"/>
-      <text>{{ useNumberFormat(playCount) }}
+      <text>{{ useNumberFormat(playCount || 0) }}
       </text>
     </div>
   </div>
@@ -24,8 +24,8 @@ import IconPark from "@/components/common/IconPark.vue";
 
 defineProps<{
   picUrl: string
-  playCount: number
-  name: string
+  playCount?: number
+  name?: string
   showPlayCount?: boolean
   onPlay?: () => void,
   video?: boolean,

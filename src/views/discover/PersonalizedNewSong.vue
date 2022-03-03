@@ -1,15 +1,15 @@
 <template>
   <Title title="推荐新音乐"/>
-  <div class="grid grid-flow-row grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-y-2.5 gap-x-5 cursor-pointer">
+  <div class="grid grid-flow-row grid-cols-2 2xl:grid-cols-5 gap-y-2.5 gap-x-5 cursor-pointer">
     <div v-for="(item,index) in personalizedNewSong" :key="index"
          class="hover:bg-gray-100 transition-all flex items-center" @click="play(item.id)">
-      <img :src="item.picUrl" alt="" class="w-12 h-12 object-cover rounded "/>
-      <div class="ml-2 text-xs flex-auto">
-        <div class="text-xs">
-          <span class="overflow-ellipsis text-gray-600">{{ item.name }}</span>
+      <img :src="item.picUrl" alt="" class="w-12 h-12 object-cover rounded flex-shrink-0"/>
+      <div class="px-2 text-xs flex-auto flex flex-col w-1/3">
+        <div class="text-xs flex-1 truncate ">
+          {{ item.name }}
         </div>
         <div class="mt-1.5">
-          <small class="text-gray-400">{{ item.song.artists[0].name }}</small>
+          {{ item.song.artists[0].name }}
         </div>
       </div>
     </div>

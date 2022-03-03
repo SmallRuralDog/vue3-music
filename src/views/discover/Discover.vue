@@ -4,6 +4,7 @@
     <Banner :per-page="3"/>
     <Personalized/>
     <PersonalizedNewSong/>
+    <Mv/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Personalized from "@/views/discover/Personalized.vue";
 import PersonalizedNewSong from "@/views/discover/PersonalizedNewSong.vue";
 import Banner from "@/components/common/Banner.vue";
 import Title from "@/components/common/Title.vue";
+import Mv from "./Mv.vue";
 
 </script>
 

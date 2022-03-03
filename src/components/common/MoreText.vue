@@ -15,7 +15,7 @@ const props = defineProps<{ text: string, end: number }>()
 const show = ref(false)
 const isShow = ref(false)
 
-if (props.text.length > props.end) {
+if (props.text && props.text.length  > props.end) {
   show.value = true
 }
 

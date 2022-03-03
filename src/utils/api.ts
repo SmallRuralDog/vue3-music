@@ -1,5 +1,5 @@
 import type {Banner} from "@/models/banner";
-import type {Personalized, PersonalizedNewSong} from "@/models/personalized";
+import type {Personalized, PersonalizedMv, PersonalizedNewSong} from "@/models/personalized";
 import type {PlayListDetail} from "@/models/playlist";
 import type {PlayListCat} from "@/models/playlist_cat";
 import type {Song} from "@/models/song";
@@ -9,6 +9,7 @@ import http from "@/utils/http";
 import type {Artist, Mv} from "@/models/artist";
 import type {ArtistDesc, ArtistDetail} from "@/models/artist_detail";
 import type {Album} from "@/models/album";
+import type {PersonalizedPrivateContent, Video} from "@/models/video";
 
 
 export async function useSongUrl(id: number) {
@@ -86,6 +87,26 @@ export async function useArtistSongs(id: number, order: string = 'time', limit: 
 export async function useArtistAlbum(id: number, limit: number = 10, offset: number = 0) {
     return await http.get<{ hotAlbums: Album[] }>('artist/album', {id: id, limit: limit, offset: offset})
 }
+
 export async function useArtistMv(id: number, limit: number = 10, offset: number = 0) {
     return await http.get<{ mvs: Mv[] }>('artist/mv', {id: id, limit: limit, offset: offset})
+}
+
+export async function useVideoTimelineRecommend(offset: number = 0) {
+    const {datas} = await http.get<{ datas: Video[] }>('video/timeline/recommend', {offset: offset})
+    return datas
+}
+
+export async function usePersonalizedPrivateContentList(limit: number = 10, offset: number = 0) {
+    const {result} = await http.get<{ result: PersonalizedPrivateContent[] }>('personalized/privatecontent/list', {
+        limit: limit,
+        offset: offset
+    })
+    return result
+}
+
+
+export async function usePersonalizedMv() {
+    const {result} = await http.get<{ result: PersonalizedMv[] }>('personalized/mv')
+    return result
 }
