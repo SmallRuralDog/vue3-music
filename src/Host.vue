@@ -1577,7 +1577,7 @@
       <el-input size="large" placeholder="http://127.0.0.1:3000" v-model="pageData.host">
         <template #prepend>API 地址</template>
         <template #append>
-          <el-button :disabled="!pageData.host" @click="sub">确定</el-button>
+          <el-button :disabled="!pageData.host" @click="sub" :loading="pageData.loading">确定</el-button>
         </template>
       </el-input>
       <div class="text-sm mt-5 flex justify-center">
@@ -1617,7 +1617,7 @@ const sub = async () => {
     pageData.error = true
     setTimeout(() => {
       pageData.error = false
-    }, 10000)
+    }, 5000)
   }
   pageData.loading = false
 }

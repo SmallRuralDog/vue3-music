@@ -230,3 +230,12 @@ export interface PersonalizedMv {
     artistId: number;
     alg: string;
 }
+export interface DjProgram {
+	id: number;
+	type: number;
+	name: string;
+	copywriter: string;
+	picUrl: string;
+	canDislike: boolean;
+	trackNumberUpdateTime?: any;
+}

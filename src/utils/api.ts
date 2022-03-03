@@ -1,5 +1,5 @@
 import type {Banner} from "@/models/banner";
-import type {Personalized, PersonalizedMv, PersonalizedNewSong} from "@/models/personalized";
+import type {DjProgram, Personalized, PersonalizedMv, PersonalizedNewSong} from "@/models/personalized";
 import type {PlayListDetail} from "@/models/playlist";
 import type {PlayListCat} from "@/models/playlist_cat";
 import type {Song} from "@/models/song";
@@ -108,5 +108,10 @@ export async function usePersonalizedPrivateContentList(limit: number = 10, offs
 
 export async function usePersonalizedMv() {
     const {result} = await http.get<{ result: PersonalizedMv[] }>('personalized/mv')
+    return result
+}
+
+export async function usePersonalizedDjProgram() {
+    const {result} = await http.get<{ result: DjProgram[] }>('personalized/djprogram')
     return result
 }

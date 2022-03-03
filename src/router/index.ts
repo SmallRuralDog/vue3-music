@@ -67,6 +67,11 @@ const router = createRouter({
                     name: 'artistDetail',
                     component: () => import('@/views/artist/ArtistDetail.vue'),
                 },
+                {
+                    path: 'video',
+                    name: 'video',
+                    component: () => import('@/views/video/Video.vue'),
+                },
             ],
         },
     ]
