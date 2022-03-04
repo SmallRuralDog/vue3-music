@@ -2,9 +2,11 @@
 
 # VUE3-MUSIC
 
-基于 VUE3+TS 开发的音乐播放器，界面模仿QQ音乐。
+基于 VUE3+TS 开发的音乐播放器，界面模仿QQ音乐mac客户端。
 
 在线体验：[https://smallruraldog.github.io/vue3-music](https://smallruraldog.github.io/vue3-music)
+
+将浏览器大小设置成1050*670，体验效果更好！界面是自适应的，使用[tailwindcss.com](tailwindcss.com)来实现，手机端未适配，后期会使用Flutter单独开发手机客户端
 
 在线演示为了安全考虑，不提供API接口服务，需要准备好自己的API服务地址，并且是HTTPS的，没有HTTPS的服务，可以本地运行，首次打开时会要求设置API地址
 
