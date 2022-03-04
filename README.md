@@ -1,40 +1,63 @@
-# vue3-ts-music
 
-This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+# VUE3-MUSIC
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+基于 VUE3+TS 开发的音乐播放器，界面模仿QQ音乐。
 
-## Type Support for `.vue` Imports in TS
+在线体验：[https://smallruraldog.github.io/vue3-music](https://smallruraldog.github.io/vue3-music)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+在线演示为了安全考虑，不提供API接口服务，需要准备好自己的API服务地址，并且是HTTPS的，没有HTTPS的服务，可以本地运行，首次打开时会要求设置API地址
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+![image-20220304104457892](ui/image-20220304104457892.png)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## 本地安装
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```
+git clone https://github.com/SmallRuralDog/vue3-music.git
+cd vue3-music
+yarn
+yarn run dev
 ```
 
-### Compile and Hot-Reload for Development
+## 网易云音乐API
 
-```sh
-npm run dev
-```
+需要运行API服务才能正常体验
 
-### Type-Check, Compile and Minify for Production
+[开发文档](https://binaryify.github.io/NeteaseCloudMusicApi)
 
-```sh
-npm run build
-```
+## 开发进度
+
+当前开发正在进行中，只有少数页面可使用
+
+- [x] 播放、暂停、音量设置等基础播放控制
+- [x] 精选
+- [ ] 音乐馆
+  - [x] 精选
+  - [ ] 有声电台
+  - [x] 排行
+  - [x] 歌手
+  - [ ] 分类歌单
+  - [ ] 数字专辑
+- [ ] 视频
+- [ ] 电台
+- [x] 歌单详情页
+- [x] 歌手详情页
+- [ ] 还有很多很多页面
+
+## UI
+
+![image-20220304103319864](ui/image-20220304103319864.png)
+
+<img src="ui/image-20220304102815232.png" alt="image-20220304102815232" />
+
+![image-20220304103158197](ui/image-20220304103158197.png)
+
+![image-20220304103237503](ui/image-20220304103237503.png)
+
+![image-20220304103402092](ui/image-20220304103402092.png)
+
+![image-20220304103500148](ui/image-20220304103500148.png)
+
+## 黑夜模式
+
+等页面差不多了，就加入黑夜模式
