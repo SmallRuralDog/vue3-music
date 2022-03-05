@@ -68,6 +68,11 @@ const router = createRouter({
                     component: () => import('@/views/artist/ArtistDetail.vue'),
                 },
                 {
+                    path: 'album',
+                    name: 'album',
+                    component: () => import('@/views/album/Album.vue'),
+                },
+                {
                     path: 'video',
                     name: 'video',
                     component: () => import('@/views/video/Video.vue'),

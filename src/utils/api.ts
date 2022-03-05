@@ -1,62 +1,62 @@
-import type { Banner } from "@/models/banner";
-import type { DjProgram, Personalized, PersonalizedMv, PersonalizedNewSong } from "@/models/personalized";
-import type { PlayListDetail } from "@/models/playlist";
-import type { PlayListCat } from "@/models/playlist_cat";
-import type { Song } from "@/models/song";
-import type { SongUrl } from "@/models/song_url";
-import type { TopListDetail } from "@/models/toplist_detail";
+import type {Banner} from "@/models/banner";
+import type {DjProgram, Personalized, PersonalizedMv, PersonalizedNewSong} from "@/models/personalized";
+import type {PlayListDetail} from "@/models/playlist";
+import type {PlayListCat} from "@/models/playlist_cat";
+import type {Song} from "@/models/song";
+import type {SongUrl} from "@/models/song_url";
+import type {TopListDetail} from "@/models/toplist_detail";
 import http from "@/utils/http";
-import type { Artist, Mv } from "@/models/artist";
-import type { ArtistDesc, ArtistDetail } from "@/models/artist_detail";
-import type { Album } from "@/models/album";
-import type { PersonalizedPrivateContent, Video, VideoGroup } from "@/models/video";
+import type {Artist, Mv} from "@/models/artist";
+import type {ArtistDesc, ArtistDetail} from "@/models/artist_detail";
+import type {Album} from "@/models/album";
+import type {PersonalizedPrivateContent, Video, VideoGroup} from "@/models/video";
 
 
 export async function useSongUrl(id: number) {
-    const { data } = await http.get<{ data: SongUrl[] }>('/song/url', { id: id })
+    const {data} = await http.get<{ data: SongUrl[] }>('/song/url', {id: id})
     return data.first()
 }
 
 export async function useDetail(id: number) {
-    const { songs } = await http.get<{ songs: Song[] }>('/song/detail', { ids: id })
+    const {songs} = await http.get<{ songs: Song[] }>('/song/detail', {ids: id})
     return songs.first()
 }
 
 export async function useBanner() {
-    const { banners } = await http.get<{ banners: Banner[] }>('/banner', { type: 1 })
+    const {banners} = await http.get<{ banners: Banner[] }>('/banner', {type: 1})
     return banners
 }
 
 export async function usePersonalized() {
-    const { result } = await http.get<{ result: Personalized[] }>('/personalized')
+    const {result} = await http.get<{ result: Personalized[] }>('/personalized')
     return result
 }
 
 export async function usePersonalizedNewSong() {
-    const { result } = await http.get<{ result: PersonalizedNewSong[] }>('/personalized/newsong')
+    const {result} = await http.get<{ result: PersonalizedNewSong[] }>('/personalized/newsong')
     return result
 }
 
 export async function usePlayListDetail(id: number, s: number = 8) {
-    const { playlist } = await http.get<{ playlist: PlayListDetail }>('/playlist/detail', { id: id, s: s })
+    const {playlist} = await http.get<{ playlist: PlayListDetail }>('/playlist/detail', {id: id, s: s})
     return playlist
 }
 
 export async function usePlayListTrackAll(id: number) {
 
-    const { songs } = await http.get<{ songs: Song[] }>('playlist/track/all', { id: id })
+    const {songs} = await http.get<{ songs: Song[] }>('playlist/track/all', {id: id})
     return songs
 }
 
 export async function useTopListDetail() {
-    const { list } = await http.get<{ list: TopListDetail[] }>('/toplist/detail')
+    const {list} = await http.get<{ list: TopListDetail[] }>('/toplist/detail')
     return list
 }
 
 export async function usePlayListCatList() {
-    const { sub, categories } = await http.get<{ sub: PlayListCat[], categories: string[] }>('playlist/catlist')
+    const {sub, categories} = await http.get<{ sub: PlayListCat[], categories: string[] }>('playlist/catlist')
 
-    return { sub, categories }
+    return {sub, categories}
 }
 
 export async function userArtistList(pageData: { type: number, area: number, initial: string, page: number, limit: number }) {
@@ -72,33 +72,33 @@ export async function userArtistList(pageData: { type: number, area: number, ini
 }
 
 export async function useArtistDetail(id: number) {
-    const { data } = await http.get<{ data: ArtistDetail }>('artist/detail', { id: id })
+    const {data} = await http.get<{ data: ArtistDetail }>('artist/detail', {id: id})
     return data
 }
 
 export async function useArtistDesc(id: number) {
-    return await http.get<ArtistDesc>('artist/desc', { id: id })
+    return await http.get<ArtistDesc>('artist/desc', {id: id})
 }
 
 export async function useArtistSongs(id: number, order: string = 'time', limit: number = 10, offset: number = 0) {
-    return await http.get<{ songs: Song[] }>('artist/songs', { id: id, order: order, limit: limit, offset: offset })
+    return await http.get<{ songs: Song[] }>('artist/songs', {id: id, order: order, limit: limit, offset: offset})
 }
 
 export async function useArtistAlbum(id: number, limit: number = 10, offset: number = 0) {
-    return await http.get<{ hotAlbums: Album[] }>('artist/album', { id: id, limit: limit, offset: offset })
+    return await http.get<{ hotAlbums: Album[] }>('artist/album', {id: id, limit: limit, offset: offset})
 }
 
 export async function useArtistMv(id: number, limit: number = 10, offset: number = 0) {
-    return await http.get<{ mvs: Mv[] }>('artist/mv', { id: id, limit: limit, offset: offset })
+    return await http.get<{ mvs: Mv[] }>('artist/mv', {id: id, limit: limit, offset: offset})
 }
 
 export async function useVideoTimelineRecommend(offset: number = 0) {
-    const { datas } = await http.get<{ datas: Video[] }>('video/timeline/recommend', { offset: offset })
+    const {datas} = await http.get<{ datas: Video[] }>('video/timeline/recommend', {offset: offset})
     return datas
 }
 
 export async function usePersonalizedPrivateContentList(limit: number = 10, offset: number = 0) {
-    const { result } = await http.get<{ result: PersonalizedPrivateContent[] }>('personalized/privatecontent/list', {
+    const {result} = await http.get<{ result: PersonalizedPrivateContent[] }>('personalized/privatecontent/list', {
         limit: limit,
         offset: offset
     })
@@ -107,22 +107,32 @@ export async function usePersonalizedPrivateContentList(limit: number = 10, offs
 
 
 export async function usePersonalizedMv() {
-    const { result } = await http.get<{ result: PersonalizedMv[] }>('personalized/mv')
+    const {result} = await http.get<{ result: PersonalizedMv[] }>('personalized/mv')
     return result
 }
 
 export async function usePersonalizedDjProgram() {
-    const { result } = await http.get<{ result: DjProgram[] }>('personalized/djprogram')
+    const {result} = await http.get<{ result: DjProgram[] }>('personalized/djprogram')
     return result
 }
 
 
 export async function useVideoGroupList() {
-    const { data } = await http.get<{ data: VideoGroup[] }>('video/group/list')
+    const {data} = await http.get<{ data: VideoGroup[] }>('video/group/list')
     return data
 }
 
 export async function useVideoGroup(id?: number, offset?: number) {
-    const { datas } = await http.get<{ datas: Video[] }>(id  ? 'video/group' : 'video/timeline/all', { id: id, offset: offset })
+    const {datas} = await http.get<{ datas: Video[] }>(id ? 'video/group' : 'video/timeline/all', {
+        id: id,
+        offset: offset
+    })
     return datas
+}
+
+
+export async function useAlbum(id: number) {
+    const {album, songs} = await http.get<{ album: Album, songs: Song[] }>('album', {id: id})
+
+    return {album, songs}
 }

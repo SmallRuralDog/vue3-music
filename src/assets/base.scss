@@ -35,3 +35,11 @@ html, body {
 .el-popover.el-popper {
   min-width: auto;
 }
+
+.el-tabs__nav-wrap::after {
+  height: 0 !important;
+}
+
+.el-tabs__header {
+  @apply m-0;
+}

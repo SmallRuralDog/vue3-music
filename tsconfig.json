@@ -7,7 +7,7 @@
   ],
   "compilerOptions": {
     "isolatedModules": false,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
         "./src/*"

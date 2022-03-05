@@ -1,7 +1,8 @@
 <template>
   <div class="mt-5">
     <div class="grid grid-flow-row grid-cols-3 lg:grid-cols-5 gap-5 2xl:grid-cols-8">
-      <div v-for="(item,index) in list" :key="index" :class="{'item-1':index===0}">
+      <div v-for="(item,index) in list" :key="index" :class="{'item-1':index===0}"
+           @click="router.push({name:'album',query:{id:item.id}})">
         <CoverPlay :name="item.name" :pic-url="item.picUrl" :play-count="0"/>
         <div class="mt-2 text-xs truncate">{{ item.name }}</div>
         <div class="mt-1 text-xs text-slate-400 truncate">{{ item.publishTime.toDate() }}</div>
@@ -18,6 +19,10 @@ import {computed, onMounted, reactive, ref} from "vue";
 import {useArtistAlbum} from "@/utils/api";
 import type {Album} from "@/models/album";
 import CoverPlay from "@/components/common/CoverPlay.vue";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
+
 
 const props = defineProps<{ id: number }>()
 const list = ref<Album[]>([]);

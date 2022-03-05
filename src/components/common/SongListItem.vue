@@ -23,14 +23,15 @@
     </div>
     <div class="flex-shrink-0" :class="{'w-1/4':showAlName,'w-1/3':!showAlName}" v-if="showArName">
       <div class="w-9/12 truncate">
-        <small class="truncate max-w-full hover-text" @click="router.push({name:'artistDetail',query:{id:song.ar.first().id}})">{{
+        <small class="truncate max-w-full hover-text"
+               @click="router.push({name:'artistDetail',query:{id:song.ar.first().id}})">{{
             song.ar.first().name
           }}</small>
       </div>
     </div>
     <div class="flex-shrink-0" :class="{'w-1/4':showArName,'w-1/3':!showArName}" v-if="showAlName">
       <div class="w-9/12 truncate">
-        <small class="truncate">{{ song.al.name }}</small>
+        <small class="truncate hover-text" @click="router.push({name:'album',query:{id:song.al.id}})">{{ song.al.name }}</small>
       </div>
     </div>
     <div class="w-20 flex-shrink-0 ">
