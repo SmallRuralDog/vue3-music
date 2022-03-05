@@ -6,10 +6,12 @@ axios.defaults.maxBodyLength = 5 * 1024 * 1024;
 
 axios.interceptors.request.use(
     (config: AxiosRequestConfig | any) => {
+
         config.params = {
             ...config.params,
-            t: Date.now()
+            t:Date.now(),
         }
+
         return config;
     },
     function (error) {

@@ -177,3 +177,11 @@ export interface PersonalizedPrivateContent {
 	time: number;
 }
 
+export interface VideoGroup {
+	id: number;
+	name: string;
+	url?: any;
+	relatedVideoType?: any;
+	selectTab: boolean;
+	abExtInfo?: any;
+}

@@ -39,11 +39,10 @@ const getData = async () => {
     if (pageData.page === 1) {
       list.value = mvs
     } else {
-      if (mvs.length < pageData.limit) {
-        pageData.noMore = true
-      }
       list.value.push(...mvs)
     }
+    if (mvs.length < pageData.limit) pageData.noMore = true;
+
   } catch (e) {
     pageData.page--
   }

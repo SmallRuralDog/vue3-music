@@ -40,10 +40,10 @@ const getData = async () => {
     if (pageData.page === 1) {
       list.value = hotAlbums
     } else {
-      if (hotAlbums.length < pageData.limit) {
-        pageData.noMore = true
-      }
       list.value.push(...hotAlbums)
+    }
+    if (hotAlbums.length < pageData.limit) {
+      pageData.noMore = true
     }
   } catch (e) {
     pageData.page--

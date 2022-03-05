@@ -31,3 +31,7 @@ html, body {
     @apply scale-75 bg-white text-slate-500 text-xs bg-opacity-50 border-0 left-2 -top-2;
   }
 }
+
+.el-popover.el-popper {
+  min-width: auto;
+}

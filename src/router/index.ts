@@ -71,6 +71,21 @@ const router = createRouter({
                     path: 'video',
                     name: 'video',
                     component: () => import('@/views/video/Video.vue'),
+                    meta: {
+                        menu: 'video',
+                        title: '视频',
+                        keepAlive: true,
+                    }
+                },
+                {
+                    path: 'dj',
+                    name: 'dj',
+                    component: () => import('@/views/dj/DJ.vue'),
+                    meta: {
+                        menu: 'dj',
+                        title: '电台',
+                        keepAlive: true,
+                    }
                 },
             ],
         },

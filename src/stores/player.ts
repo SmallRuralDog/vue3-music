@@ -34,19 +34,17 @@ export const usePlayerStore = defineStore({
         async play(id: number) {
             if (id == this.id) return;
             this.isPlaying = false
-            this.id = id;
-
-            this.songDetail()
-
             const data = await useSongUrl(id)
-            this.songUrl = data
-            this.url = data.url
-            this.id = id;
-            this.audio.src = this.url;
+            this.audio.src = data.url;
             this.audio.play().then(res => {
+                console.log("play")
                 this.isPlaying = true
+                this.songUrl = data
+                this.url = data.url
+                this.id = id;
+                this.songDetail()
             }).catch(res => {
-
+                console.log(res)
             })
         },
         //播放结束

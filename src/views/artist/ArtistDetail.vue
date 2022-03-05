@@ -36,7 +36,7 @@ import Video from "./Video.vue";
 const route = useRoute()
 const id = Number(route.query.id);
 const artistDetail = ref<ArtistDetail>()
-const tab = ref('choice')
+const tab = ref('music')
 onMounted(async () => {
   artistDetail.value = await useArtistDetail(id)
 })

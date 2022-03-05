@@ -39,7 +39,7 @@ export function userMenu() {
                 },
                 {
                     name: "电台",
-                    key: "broadcast",
+                    key: "dj",
                     icon: Fm,
                     theme: 'outline',
                 },

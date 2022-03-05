@@ -30,7 +30,7 @@
         <song-list-item :show-ar-name="false" show-al-name :song="song"/>
       </template>
     </div>
-    <div class="flex justify-center py-5" v-if="songList.length>0">
+    <div class="flex justify-center py-5" v-if="songList.length>0 && !pageData.noMore">
       <el-button :loading="pageData.loading" type="text" class="text-center  w-full" @click="loadMore">加载更多</el-button>
     </div>
   </div>
@@ -53,6 +53,7 @@ const pageData = reactive({
   limit: 20,
   page: 1,
   loading: false,
+  noMore: false,
 })
 
 const offset = computed(() => {
@@ -69,6 +70,7 @@ const getData = async () => {
     } else {
       songList.value.push(...songs)
     }
+    if (songs.length < pageData.limit) pageData.noMore = true
   } catch (e) {
     pageData.page--
   }
