@@ -1,4 +1,4 @@
-import {defineStore} from "pinia";
+import {defineStore, storeToRefs} from "pinia";
 import {useDetail, useSongUrl} from "@/utils/api";
 import {onMounted, onUnmounted, toRefs, watch} from "vue";
 import type {Song} from "@/models/song";
@@ -50,9 +50,25 @@ export const usePlayerStore = defineStore({
         //播放结束
         playEnd() {
             console.log('播放结束')
+            switch (this.loopType) {
+                case 0:
+                    this.rePlay()
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
         },
         async songDetail() {
             this.song = await useDetail(this.id)
+        },
+        //重新播放
+        rePlay() {
+            setTimeout(() => {
+                this.currentTime = 0;
+                this.audio.play()
+            }, 1500)
         },
         //下一曲
         next() {
@@ -120,10 +136,11 @@ export const userPlayerInit = () => {
     let timer: NodeJS.Timer;
     const {init, interval, playEnd} = usePlayerStore()
 
-    const {ended} = toRefs(usePlayerStore())
+    const {ended} = storeToRefs(usePlayerStore())
 
     //监听播放结束
-    watch(() => ended, ended => {
+    watch(ended, ended => {
+        if (!ended) return
         playEnd()
     })
 

@@ -45,17 +45,15 @@
 <script setup lang="ts">
 import {Right} from "@icon-park/vue-next"
 import {useVideoStore} from '@/stores/video';
-import {storeToRefs} from 'pinia';
-import {onMounted, ref} from 'vue';
+import {onMounted, ref, toRefs} from 'vue';
 import IconPark from '@/components/common/IconPark.vue';
 import type {Video} from "@/models/video";
 import {useVideoGroup} from "@/utils/api";
 import CoverPlay from "@/components/common/CoverPlay.vue";
 
 
-const {videoGroup} = storeToRefs(useVideoStore())
+const {videoGroup} = toRefs(useVideoStore())
 const {getVideoGroup} = useVideoStore()
-
 
 const videoList = ref<Video[]>([])
 

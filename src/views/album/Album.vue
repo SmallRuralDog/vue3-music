@@ -15,7 +15,7 @@
       </el-tab-pane>
       <el-tab-pane lazy label="评论" name="comments"/>
       <el-tab-pane lazy label="专辑详情" name="desc">
-        <div class="text-xs text-slate-500 leading-7" style="white-space: pre-wrap" v-html="albumData.description"></div>
+        <div class="text-xs text-slate-500 leading-7" style="white-space: pre-wrap" v-html="albumData?.description"></div>
       </el-tab-pane>
     </el-tabs>
   </div>

@@ -4,7 +4,7 @@
       <IconPark :icon="Left" :size="iconSize" :stroke-width="2" class="icon-button" @click="router.back()"/>
       <IconPark :icon="Right" :size="iconSize" :stroke-width="2" class="icon-button"/>
       <div class="search no-drag ml-2">
-        <ElInput placeholder="搜索音乐、MV、歌单" :prefix-icon="Search"/>
+        <SearchPop/>
       </div>
     </div>
     <div class="flex items-center mr-5">
@@ -17,14 +17,20 @@
 </template>
 
 <script setup lang="ts">
-import {Search, Left, Right, HamburgerButton, Platte, Mail} from '@icon-park/vue-next'
+import {HamburgerButton, Left, Mail, Platte, Right, Search} from '@icon-park/vue-next'
 import {useRouter} from "vue-router";
 import IconPark from "@/components/common/IconPark.vue";
 import UserInfo from "@/components/layout/header/UserInfo.vue";
+import {useSearchStore} from "@/stores/search";
+import {storeToRefs} from "pinia";
+import SearchPop from "@/components/layout/header/SearchPop.vue";
 
 const iconSize = 22;
 
 const router = useRouter();
+
+const {showSearchView, searchKeyword} = storeToRefs(useSearchStore())
+
 </script>
 <style lang="scss" scoped>
 .search {

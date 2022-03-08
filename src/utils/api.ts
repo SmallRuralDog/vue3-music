@@ -10,6 +10,7 @@ import type {Artist, Mv} from "@/models/artist";
 import type {ArtistDesc, ArtistDetail} from "@/models/artist_detail";
 import type {Album} from "@/models/album";
 import type {PersonalizedPrivateContent, Video, VideoGroup} from "@/models/video";
+import type {SearchHotDetail, SearchSuggest} from "@/models/search";
 
 
 export async function useSongUrl(id: number) {
@@ -135,4 +136,14 @@ export async function useAlbum(id: number) {
     const {album, songs} = await http.get<{ album: Album, songs: Song[] }>('album', {id: id})
 
     return {album, songs}
+}
+
+export async function useSearchHotDetail() {
+    const {data} = await http.get<{ data: SearchHotDetail[] }>('search/hot/detail')
+    return data
+}
+
+export async function useSearchSuggest(keywords: string) {
+    const {result} = await http.get<{ result: SearchSuggest }>('search/suggest', {keywords: keywords})
+    return result
 }

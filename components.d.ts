@@ -32,6 +32,8 @@ declare module 'vue' {
     PlayerSlider: typeof import('./src/components/layout/footer/PlayerSlider.vue')['default']
     PlayerSong: typeof import('./src/components/layout/footer/PlayerSong.vue')['default']
     PlayerVolumeSlider: typeof import('./src/components/layout/footer/PlayerVolumeSlider.vue')['default']
+    SearchPop: typeof import('./src/components/layout/header/SearchPop.vue')['default']
+    SearchSuggest: typeof import('./src/components/layout/header/SearchSuggest.vue')['default']
     SongListItem: typeof import('./src/components/common/SongListItem.vue')['default']
     Title: typeof import('./src/components/common/Title.vue')['default']
     UserInfo: typeof import('./src/components/layout/header/UserInfo.vue')['default']

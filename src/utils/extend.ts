@@ -1,5 +1,6 @@
 import {first, sampleSize, chunk, trimEnd} from 'lodash'
 import dayjs from 'dayjs'
+import {useNumberFormat} from "@/utils/number";
 
 declare global {
     interface Array<T> {
@@ -33,6 +34,8 @@ declare global {
 
     interface Number {
         toDate(this: number, format?: string): string
+
+        numberFormat(this: number): string | number
     }
 }
 Array.prototype.first = function <T>(this: T[]): T {
@@ -54,4 +57,8 @@ String.prototype.trimEnd = function (this: string, chars: string = ' '): string 
 
 Number.prototype.toDate = function (this: number, format: string = 'YYYY-MM-DD'): string {
     return dayjs(this).format(format)
+}
+
+Number.prototype.numberFormat = function (this: number): string | number {
+    return useNumberFormat(this)
 }
