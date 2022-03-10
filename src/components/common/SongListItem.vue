@@ -1,5 +1,5 @@
 <template>
-  <div class="flex song-item items-center w-full" :class="{'playing':id===song.id}"
+  <div class="flex song-item items-center w-full hover-bg-main" :class="{'playing':id===song.id}"
        @dblclick="play(song.id)">
     <div class="flex-shrink-0 flex-1 flex items-center justify-between pr-5 ">
 
@@ -63,7 +63,6 @@ const {play, id} = usePlayerStore()
 <style lang="scss" scoped>
 .song-item {
   @apply py-2.5 pl-0.5;
-  @apply hover:bg-gray-100;
   &:hover {
     .icon-action {
       @apply inline-block;

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 bg-opacity-70 h-screen flex flex-col">
+  <div class="bg-main bg-opacity-70 h-screen flex flex-col">
 
     <MenuList/>
   </div>

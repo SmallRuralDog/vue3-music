@@ -17,8 +17,8 @@
   <div class="grid grid-flow-row grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-5">
     <div v-for="artist in artists" :key="artist.id" class="flex items-center flex-col"
          @click="router.push({name:'artistDetail',query:{id:artist.id}})">
-      <el-image lazy :src="artist.img1v1Url" alt=""
-                class="rounded-full cursor-pointer w-full aspect-square object-cover bg-gray-50"/>
+      <img :src="artist.img1v1Url" alt=""
+           class="rounded-full cursor-pointer w-full aspect-square object-cover bg-dc"/>
       <div class="mt-2 text-sm">{{ artist.name }}</div>
     </div>
   </div>

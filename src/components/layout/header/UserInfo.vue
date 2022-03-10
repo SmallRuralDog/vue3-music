@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center cursor-pointer text-gray-600 hover-text">
+  <div class="flex items-center cursor-pointer hover-text">
     <ElAvatar size="small" round class="bg-gray-200"></ElAvatar>
     <span class="text-xs ml-1.5" @click="showModal=true">点击登录</span>
   </div>

@@ -5,7 +5,7 @@
       <div v-for="(item,index) in personalized.sampleSize(10)" :key="index" :class="{'item-1':index===0}"
            @click="router.push({name:'playlist',query:{id:item.id}})">
         <CoverPlay :name="item.name" :pic-url="item.picUrl" :play-count="item.playCount" show-play-count/>
-        <div class="mt-2 text-xs text-gray-700 truncate">{{ item.name }}</div>
+        <div class="mt-2 text-xs text-main truncate">{{ item.name }}</div>
       </div>
     </div>
   </div>

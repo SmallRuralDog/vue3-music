@@ -2,12 +2,12 @@
   <div class="text-xl pb-5 font-bold">官方榜</div>
   <div class="grid grid-flow-row grid-cols-2 2xl:grid-cols-4 gap-5">
     <div v-for="item in topListDetailData.slice(0,4)" :key="item.id"
-         class="flex bg-gray-100 rounded-lg items-center cursor-pointer hover:bg-gray-200" @click="toPlaylist(item)">
+         class="flex bg-dc rounded-lg items-center cursor-pointer" @click="toPlaylist(item)">
       <CoverPlay :name="item.name" :pic-url="item.coverImgUrl" :play-count="item.playCount" class="w-36 flex-shrink-0"
                  show-play-count/>
       <div class="px-5 flex-1 flex-shrink-0 flex flex-col">
         <div class="text-xl font-bold">{{ item.name }}</div>
-        <div class="text-xs text-gray-600 mt-2">
+        <div class="text-xs text-main mt-2">
           <div v-for="(track,index) in item.tracks" class="mt-2">
             <div class="flex">
               <span class="mr-1">{{ index + 1 }}</span>

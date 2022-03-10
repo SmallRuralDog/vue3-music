@@ -1,0 +1,33 @@
+.bg-main {
+  @apply bg-gray-50;
+  @apply dark:bg-stone-900;
+}
+.hover-bg-main {
+  @apply hover:bg-gray-200;
+  @apply dark:hover:bg-stone-700;
+}
+.bg-dc {
+  @apply bg-gray-100;
+  @apply dark:bg-stone-800;
+}
+.bg-view {
+  @apply bg-white;
+  @apply dark:bg-stone-900;
+}
+.hover-bg-view {
+  @apply hover:bg-stone-100;
+  @apply dark:hover:bg-stone-800;
+}
+.bg-active {
+  @apply bg-emerald-400 text-white;
+}
+
+.text-main {
+  @apply text-slate-700;
+  @apply dark:text-slate-200;
+}
+
+.text-dc {
+  @apply text-slate-400;
+  @apply dark:text-slate-500;
+}

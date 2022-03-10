@@ -16,7 +16,7 @@
             <div class="pt-2 pb-1.5 px-2.5">热门搜索</div>
             <div>
               <div v-for="(item,index) in searchHot" :key="item.searchWord"
-                   class="py-2.5 px-2.5 hover:bg-gray-50 hover-text cursor-pointer flex justify-between items-center text-xs"
+                   class="py-2.5 px-2.5 hover-text cursor-pointer flex justify-between items-center text-xs"
                    @click="hotClick(item.searchWord)">
                 <div>
                   <span class="mr-1">{{ index + 1 }}.</span>

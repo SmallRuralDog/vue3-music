@@ -8,10 +8,10 @@
                class="bg-red-500  text-xs text-white rounded px-0.5 scale-75">试听
           </div>
           <span>{{ song.name || '开源云音乐' }}</span>
-          <span class="ml-2 text-slate-500">- {{ song.ar?.first().name || `SmallRuralDog` }}</span>
+          <span class="ml-2 text-dc">- {{ song.ar?.first().name || `SmallRuralDog` }}</span>
         </div>
       </div>
-      <div class="flex gap-x-3 text-slate-500">
+      <div class="flex gap-x-3 text-main">
         <IconPark :icon="Like" size="18" :stroke-width="3" class="text-slate-400 hover-text"/>
         <IconPark :icon="DownTwo" size="18" :stroke-width="3" class="text-slate-400 hover-text"/>
         <IconPark :icon="MoreTwo" size="18" :stroke-width="3" class="text-slate-400 hover-text"/>
@@ -35,12 +35,11 @@ const {song, songUrl} = toRefs(usePlayerStore())
 
 <style lang="scss">
 .player-song {
-  .n-badge {
-    .n-badge-sup {
-      @apply scale-75 left-1 bg-stone-100 text-slate-500 bg-opacity-80;
+  .badge {
+    .el-badge__content {
+      @apply scale-75 left-1 bg-stone-100 text-slate-500 bg-opacity-80 right-auto;
+      @apply dark:bg-stone-900;
     }
   }
 }
-
-
 </style>

@@ -1,9 +1,9 @@
 <template>
   <ElScrollbar>
     <div class="mt-10 pl-6 pr-6 space-y-1.5" v-for="menuItem in menus">
-      <div class="menu-title">{{ menuItem.name }}</div>
+      <div class="menu-title text-main">{{ menuItem.name }}</div>
       <div
-          class="menu-item"
+          class="menu-item hover-bg-main text-main"
           v-for="menu in menuItem.menus"
           :key="menu.key"
           :class="{ 'active': currentKey === menu.key }"
@@ -29,12 +29,11 @@ const {menus, currentKey, click} = userMenu()
 
 <style lang="scss" scoped>
 .menu-title {
-  @apply text-xs text-gray-400 pl-4 pr-4 pb-2;
+  @apply text-xs pl-4 pr-4 pb-2;
 }
 
 .menu-item {
   @apply text-sm pl-4 pr-4 pt-1.5 pb-1.5 rounded cursor-pointer transition-colors flex items-center;
-  @apply hover:bg-gray-200;
 }
 
 .active {

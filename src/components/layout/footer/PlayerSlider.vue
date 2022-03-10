@@ -26,8 +26,8 @@ const {duration, currentTime, onSliderInput, onSliderChange} = toRefs(usePlayerS
     }
 
     .el-slider__runway {
-      @apply bg-slate-50 transition-all;
-      @apply hover:bg-slate-200;
+      //@apply bg-slate-50 dark:bg-stone-700 transition-all;
+      //@apply hover:bg-stone-200 dark:hover:bg-stone-600;
     }
 
     .el-slider__button-wrapper {

@@ -52,25 +52,25 @@ export function userMenu() {
                     name: "我喜欢",
                     key: "love",
                     icon: Like,
-                    theme: 'filled',
+                    theme: 'outline',
                 },
                 {
                     name: "本地歌曲",
                     key: "local",
                     icon: Computer,
-                    theme: 'filled',
+                    theme: 'outline',
                 },
                 {
                     name: "下载歌曲",
                     key: "download",
                     icon: DownloadThree,
-                    theme: 'filled',
+                    theme: 'outline',
                 },
                 {
                     name: "最近播放",
                     key: "recently",
                     icon: PlayTwo,
-                    theme: 'filled'
+                    theme: 'outline'
                 },
             ]
         }
