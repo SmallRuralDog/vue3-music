@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto flex flex-col items-center  h-screen text-slate-700">
+  <div class="container mx-auto flex flex-col items-center  h-screen">
     <div class="h-1/4"></div>
     <div>
       <svg xml:space="preserve" style="enable-background:new 0 0 255.975 237.578;" viewBox="0 0 255.975 237.578"
