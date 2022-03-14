@@ -1,13 +1,14 @@
 import {createRouter, createWebHistory, createWebHashHistory} from 'vue-router'
+import {Pages} from "@/router/pages";
 
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
-            name: 'home',
+            name: Pages.home,
             component: () => import('@/views/Root.vue'),
-            redirect: {name: 'music'},
+            redirect: {name: Pages.discover},
             children: [
                 {
                     path: 'discover',
@@ -92,6 +93,11 @@ const router = createRouter({
                         keepAlive: true,
                     }
                 },
+                {
+                    path: Pages.mvDetail,
+                    name: Pages.mvDetail,
+                    component: () => import('@/views/mv/mvDetail.vue'),
+                }
             ],
         },
     ]

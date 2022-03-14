@@ -89,6 +89,19 @@ export const usePlayerStore = defineStore({
                 this.isPause = false
             }
         },
+        setPlay(){
+            if (!this.song.id) return;
+            this.isPlaying = true
+            this.audio.play();
+            this.isPause = false
+
+        },
+        setPause(){
+            if (!this.song.id) return;
+            this.isPlaying = false
+            this.audio.pause();
+            this.isPause = true
+        },
         //切换循环类型
         toggleLoop() {
             if (this.loopType == 2) {

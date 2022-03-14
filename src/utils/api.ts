@@ -11,6 +11,7 @@ import type {ArtistDesc, ArtistDetail} from "@/models/artist_detail";
 import type {Album} from "@/models/album";
 import type {PersonalizedPrivateContent, Video, VideoGroup} from "@/models/video";
 import type {SearchHotDetail, SearchSuggest} from "@/models/search";
+import type {MvUrl} from "@/models/mv";
 
 
 export async function useSongUrl(id: number) {
@@ -146,4 +147,13 @@ export async function useSearchHotDetail() {
 export async function useSearchSuggest(keywords: string) {
     const {result} = await http.get<{ result: SearchSuggest }>('search/suggest', {keywords: keywords})
     return result
+}
+
+export async function useMvDetail(mvid: number) {
+
+}
+
+export async function useMvUrl(id: number) {
+    const {data} = await http.get<{ data: MvUrl }>("mv/url", {id: id})
+    return data
 }

@@ -10,7 +10,7 @@
           <small>{{ song.name }}</small>
         </div>
         <IconPark v-if="song.mv>0" class="ml-2 text-orange-400 cursor-pointer" size="16"
-                  :icon="PlayTwo"/>
+                  :icon="PlayTwo" @click="router.push({name:Pages.mvDetail,query:{id:song.mv}})"/>
       </div>
       <div class="hidden icon-action flex-shrink-0">
         <div class="flex items-center gap-x-1.5 text-gray-400 ml-2  ">
@@ -31,7 +31,9 @@
     </div>
     <div class="flex-shrink-0" :class="{'w-1/4':showArName,'w-1/3':!showArName}" v-if="showAlName">
       <div class="w-9/12 truncate">
-        <small class="truncate hover-text" @click="router.push({name:'album',query:{id:song.al.id}})">{{ song.al.name }}</small>
+        <small class="truncate hover-text" @click="router.push({name:'album',query:{id:song.al.id}})">{{
+            song.al.name
+          }}</small>
       </div>
     </div>
     <div class="w-20 flex-shrink-0 ">
@@ -49,6 +51,7 @@ import {usePlayerStore} from "@/stores/player";
 import IconPark from "@/components/common/IconPark.vue";
 import type {Song} from "@/models/song";
 import {useRouter} from "vue-router";
+import {Pages} from "@/router/pages";
 
 const router = useRouter()
 
@@ -71,6 +74,6 @@ const {play, id} = usePlayerStore()
 }
 
 .playing {
-  @apply bg-emerald-50;
+  @apply bg-emerald-50 dark:bg-stone-700;
 }
 </style>
