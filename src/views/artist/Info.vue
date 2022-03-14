@@ -14,16 +14,17 @@
         </div>
       </div>
       <div class="justify-self-stretch mt-5 gap-x-2 flex items-center">
-        <el-button class="w-32 bg-emerald-500 border-0 text-white" round type="primary">
+        <button class="w-32 button">
           <IconPark :icon="Plus" size="18" class="mr-1"/>
           <span>关注</span>
-        </el-button>
-        <el-button class="w-32 bg-gray-100" secondary round>
+        </button>
+        <button class="w-32 button-outline">
           <IconPark :icon="Fm" size="18" class="mr-1"/>
           <span>歌手电台</span>
-        </el-button>
-        <el-button circle class="bg-gray-100" secondary :icon="More">
-        </el-button>
+        </button>
+        <button  class="button-outline w-8" >
+          <IconPark :icon="More"/>
+        </button>
       </div>
     </div>
   </div>

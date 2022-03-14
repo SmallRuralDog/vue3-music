@@ -16,16 +16,17 @@
         </div>
       </div>
       <div class="justify-self-stretch mt-5 gap-x-2 flex items-center">
-        <el-button class="w-32 border-0 text-white" round type="primary" @click="playAll">
+        <button class="w-32 button"  @click="playAll">
           <IconPark :icon="PlayOne" size="22" class="mr-1"/>
           <span>播放全部</span>
-        </el-button>
-        <el-button class="w-32" plain secondary round>
+        </button>
+        <button class="w-32 button-outline">
           <IconPark :icon="Like" size="18" class="mr-1"/>
           <span>收藏</span>
-        </el-button>
-        <el-button circle class="bg-gray-100" plain secondary :icon="More">
-        </el-button>
+        </button>
+        <button  class="button-outline w-8">
+          <IconPark :icon="More"/>
+        </button>
       </div>
     </div>
   </div>

@@ -2,22 +2,27 @@
   @apply bg-gray-50;
   @apply dark:bg-[#171718];
 }
+
 .hover-bg-main {
   @apply hover:bg-gray-200;
   @apply dark:hover:bg-stone-700;
 }
+
 .bg-dc {
   @apply bg-gray-100;
   @apply dark:bg-stone-800;
 }
+
 .bg-view {
   @apply bg-white;
   @apply dark:bg-[#1e1e1f];
 }
+
 .hover-bg-view {
   @apply hover:bg-stone-100;
   @apply dark:hover:bg-stone-800;
 }
+
 .bg-active {
   @apply bg-emerald-400 text-white;
 }
@@ -30,4 +35,19 @@
 .text-dc {
   @apply text-slate-400;
   @apply dark:text-slate-400;
+}
+
+.button {
+  @apply flex bg-emerald-600 rounded-full justify-center items-center h-8 text-sm transition-all;
+  @apply text-white;
+  @apply hover:bg-emerald-700;
+}
+
+.button-outline {
+  @apply flex rounded-full justify-center items-center h-8 text-sm transition-all border;
+  @apply hover:border-emerald-500 hover:text-emerald-500;
+}
+
+.button-sm{
+  @apply h-7 text-xs;
 }

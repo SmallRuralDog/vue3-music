@@ -1,18 +1,18 @@
 <template>
   <div class="mt-5 flex items-center justify-between">
-    <div>
-      <el-button round class="w-28">
-        <IconPark :icon="PlayOne" class="mr-1" size="16"/>
+    <div class="flex gap-x-2">
+      <button class="w-28 button-outline button-sm" @click="playAll">
+        <IconPark :icon="PlayOne" class="mr-1" size="14"/>
         播放全部
-      </el-button>
-      <el-button round class="w-28">
-        <IconPark :icon="Download" class="mr-1" size="16"/>
+      </button>
+      <button class="w-28 button-outline button-sm">
+        <IconPark :icon="Download" class="mr-1" size="12"/>
         下载
-      </el-button>
-      <el-button round class="w-28">
-        <IconPark :icon="FullSelection" class="mr-1" size="16"/>
+      </button>
+      <button class="w-28 button-outline button-sm">
+        <IconPark :icon="FullSelection" class="mr-1" size="12"/>
         批量操作
-      </el-button>
+      </button>
     </div>
     <div class="gap-x-5 flex mr-10 text-xs">
       <div class="hover-text" :class="{'text-emerald-400':pageData.order==='hot'}" @click="setOrder('hot')">最热</div>
@@ -43,10 +43,18 @@ import type {Song} from "@/models/song";
 import {useArtistSongs} from "@/utils/api";
 import SongListItem from "@/components/common/SongListItem.vue";
 import IconPark from "@/components/common/IconPark.vue";
+import {usePlayerStore} from "@/stores/player";
 
 const props = defineProps<{ id: number }>()
 
 const songList = ref<Song[]>([]);
+
+const {pushPlayList, play} = usePlayerStore()
+
+const playAll = () => {
+  pushPlayList(false, ...songList.value)
+  play(songList.value.first().id)
+}
 
 const pageData = reactive({
   order: 'hot',

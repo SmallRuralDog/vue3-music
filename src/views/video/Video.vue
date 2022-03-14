@@ -3,10 +3,10 @@
     <div class="flex items-center justify-between">
       <el-popover width="60%" placement="bottom-start" popper-style="padding:0;">
         <template #reference>
-          <el-button round>
+          <button class="button-outline px-5">
             <span class="mr-2">全部视频</span>
             <IconPark :icon="Right"/>
-          </el-button>
+          </button>
         </template>
         <div>
           <div class="text-xl pt-5 pl-5">全部视频</div>
