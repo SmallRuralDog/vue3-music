@@ -1,6 +1,6 @@
 <template>
   <div class="px-5">
-    <Title class="text-3xl font-bold mb-2" title="推荐"/>
+    <h1 class="text-3xl font-bold pt-8 pb-4">推荐</h1>
     <Banner :per-page="3"/>
     <Personalized/>
     <PersonalizedNewSong/>

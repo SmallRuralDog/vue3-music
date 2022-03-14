@@ -18,6 +18,9 @@
         <Footer/>
       </div>
     </div>
+
+    <PlayList/>
+
   </div>
 </template>
 
@@ -26,7 +29,6 @@
 import Menu from "@/components/layout/menu/Menu.vue";
 import Header from "@/components/layout/header/Header.vue";
 import Footer from "@/components/layout/footer/Footer.vue";
-</script>
+import PlayList from "@/components/layout/playList/PlayList.vue";</script>
 <style lang="scss">
-
 </style>

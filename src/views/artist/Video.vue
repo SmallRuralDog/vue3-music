@@ -1,7 +1,8 @@
 <template>
   <div class="mt-5">
     <div class="grid grid-flow-row gap-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  2xl:grid-cols-5">
-      <div v-for="(item,index) in list" :key="index" :class="{'item-1':index===0}">
+      <div v-for="(item,index) in list" :key="index" :class="{'item-1':index===0}"
+           @click="router.push({name:Pages.mvDetail,query:{id:item.id}})">
         <CoverPlay :name="item.name" :pic-url="item.imgurl16v9" video :play-count="item.playCount" show-play-count/>
         <div class="mt-2 text-xs truncate hover-text">{{ item.name }}</div>
       </div>
@@ -17,9 +18,13 @@ import {computed, onMounted, reactive, ref} from "vue";
 import {useArtistMv} from "@/utils/api";
 import CoverPlay from "@/components/common/CoverPlay.vue";
 import type {Mv} from "@/models/artist";
+import {useRouter} from "vue-router";
+import {Pages} from "@/router/pages";
 
 const props = defineProps<{ id: number }>()
 const list = ref<Mv[]>([]);
+
+const router = useRouter();
 
 const pageData = reactive({
   limit: 40,

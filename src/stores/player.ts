@@ -14,7 +14,8 @@ export const usePlayerStore = defineStore({
         audio: new Audio(),
         loopType: 0,//循环模式 0 单曲循环 1 列表循环 2随机播放
         volume: localStorage.getItem(KEYS.volume)?.toInt() || 60,//音量
-        playList: [],//播放列表
+        playList: [] as Song[],//播放列表,
+        showPlayList: false,
         id: 0,
         url: '',
         songUrl: {} as SongUrl,
@@ -27,9 +28,65 @@ export const usePlayerStore = defineStore({
         currentTime: 0,//当前播放时间
         duration: 0,//总播放时长
     }),
+    getters: {
+        playListCount: state => {
+            return state.playList.length;
+        },
+        thisIndex: state => {
+            return state.playList.findIndex(song => song.id === state.id);
+        },
+        nextSong(state): Song {
+            const {thisIndex, playListCount} = this
+            if (thisIndex === playListCount - 1) {
+                return state.playList.first();
+            } else {
+                const nextIndex: number = thisIndex + 1
+                return state.playList[nextIndex];
+            }
+        },
+        prevSong(state): Song {
+            const {thisIndex} = this
+            if (thisIndex === 0) {
+                return state.playList.last();
+            } else {
+                const prevIndex: number = thisIndex - 1
+                return state.playList[prevIndex];
+            }
+        }
+    },
     actions: {
         init() {
             this.audio.volume = this.volume / 100;
+        },
+        //播放列表里面添加音乐
+        pushPlayList(replace: boolean, ...list: Song[]) {
+            if (replace) {
+                this.playList = list;
+                return;
+            }
+            list.forEach(song => {
+                if (this.playList.filter(s => s.id == song.id).length <= 0) {
+                    this.playList.push(song)
+                }
+            })
+        },
+        clearPlayList() {
+            this.songUrl = {} as SongUrl
+            this.url = ''
+            this.id = 0;
+            this.song = {} as Song
+            this.isPlaying = false;
+            this.isPause = false;
+            this.sliderInput = false;
+            this.ended = false;
+            this.muted = false;
+            this.currentTime = 0;
+            this.playList = [] as Song[];
+            this.showPlayList = false;
+            this.audio.load();
+            setTimeout(() => {
+                this.duration = 0;
+            }, 500)
         },
         async play(id: number) {
             if (id == this.id) return;
@@ -37,7 +94,6 @@ export const usePlayerStore = defineStore({
             const data = await useSongUrl(id)
             this.audio.src = data.url;
             this.audio.play().then(res => {
-                console.log("play")
                 this.isPlaying = true
                 this.songUrl = data
                 this.url = data.url
@@ -55,13 +111,17 @@ export const usePlayerStore = defineStore({
                     this.rePlay()
                     break;
                 case 1:
+                    this.next()
                     break;
                 case 2:
+                    this.randomPlay()
                     break;
             }
         },
         async songDetail() {
             this.song = await useDetail(this.id)
+
+            this.pushPlayList(false, this.song)
         },
         //重新播放
         rePlay() {
@@ -72,10 +132,20 @@ export const usePlayerStore = defineStore({
         },
         //下一曲
         next() {
-            this.play(1909651843)
+            if (this.loopType === 2) {
+                this.randomPlay()
+            } else {
+                this.play(this.nextSong.id)
+            }
+
         },
         //上一曲
         prev() {
+            this.play(this.prevSong.id)
+        },
+        //随机播放
+        randomPlay() {
+            this.play(this.playList.sample().id)
         },
         //播放、暂停
         togglePlay() {
@@ -89,14 +159,14 @@ export const usePlayerStore = defineStore({
                 this.isPause = false
             }
         },
-        setPlay(){
+        setPlay() {
             if (!this.song.id) return;
             this.isPlaying = true
             this.audio.play();
             this.isPause = false
 
         },
-        setPause(){
+        setPause() {
             if (!this.song.id) return;
             this.isPlaying = false
             this.audio.pause();

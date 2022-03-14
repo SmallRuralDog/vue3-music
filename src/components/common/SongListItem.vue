@@ -45,13 +45,14 @@
 </template>
 
 <script setup lang="ts">
-import {Like, DataSheet, PlayOne, Add, DownTwo, MoreTwo, PlayTwo} from '@icon-park/vue-next'
+import {Add, DownTwo, Like, MoreTwo, PlayOne, PlayTwo} from '@icon-park/vue-next'
 import {useFormatDuring} from '@/utils/number'
 import {usePlayerStore} from "@/stores/player";
 import IconPark from "@/components/common/IconPark.vue";
 import type {Song} from "@/models/song";
 import {useRouter} from "vue-router";
 import {Pages} from "@/router/pages";
+import {storeToRefs} from "pinia";
 
 const router = useRouter()
 
@@ -60,7 +61,8 @@ defineProps<{
   showArName?: boolean,
   showAlName?: boolean,
 }>()
-const {play, id} = usePlayerStore()
+const {play} = usePlayerStore()
+const {id} = storeToRefs(usePlayerStore())
 </script>
 
 <style lang="scss" scoped>
@@ -74,6 +76,6 @@ const {play, id} = usePlayerStore()
 }
 
 .playing {
-  @apply bg-emerald-50 dark:bg-stone-700;
+  @apply bg-emerald-50 dark:bg-stone-800;
 }
 </style>

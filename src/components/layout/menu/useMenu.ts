@@ -89,8 +89,8 @@ export function userMenu() {
         }
     );
 
-    const click = (menu: IMenu) => {
-        router.push({name: menu.key});
+    const click = async (menu: IMenu) => {
+        await router.push({name: menu.key, replace: true,})
     };
 
     return {

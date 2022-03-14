@@ -26,10 +26,10 @@
     --el-border-color-base: #57534e !important;
     --el-text-color-regular: #e2e8f0 !important;
     --el-text-color-primary: text-slate-200 !important;
-    --el-bg-color: #292524 !important;
-    --el-color-white: #292524 !important;
-    --el-border-color-lighter: #57534e !important;
-    --el-border-color-light: #57534e !important;
+    --el-bg-color: #474648 !important;
+    --el-color-white: #1e1e1f !important;
+    --el-border-color-lighter: #474648 !important;
+    --el-border-color-light: #474648 !important;
 
     --el-popover-bg-color: #292524 !important;
   }
@@ -39,7 +39,7 @@ html, body {
   font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
   'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   @apply text-slate-700 bg-white;
-  @apply dark:bg-stone-900 dark:text-slate-200;
+  @apply dark:bg-[#1e1e1f] dark:text-slate-100;
 }
 
 .hover-text {

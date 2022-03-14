@@ -1,4 +1,4 @@
-import {first, sampleSize, chunk, trimEnd} from 'lodash'
+import {first,last, sampleSize,sample, chunk, trimEnd} from 'lodash'
 import dayjs from 'dayjs'
 import {useNumberFormat} from "@/utils/number";
 
@@ -8,6 +8,9 @@ declare global {
          * 获取数组第一个元素
          */
         first<T>(this: T[]): T
+
+        last<T>(this: T[]): T
+        sample<T>(this: T[]): T
 
         /**
          * 获得 n 个随机元素
@@ -40,6 +43,12 @@ declare global {
 }
 Array.prototype.first = function <T>(this: T[]): T {
     return first<T>(this) as T
+}
+Array.prototype.last = function <T>(this: T[]): T {
+    return last<T>(this) as T
+}
+Array.prototype.sample = function <T>(this: T[]): T {
+    return sample<T>(this) as T
 }
 Array.prototype.sampleSize = function <T>(this: T[], size: number): T[] {
     return sampleSize<T>(this, size) as T[]

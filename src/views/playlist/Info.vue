@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="justify-self-stretch mt-5 gap-x-2 flex items-center">
-        <el-button class="w-32 border-0 text-white" round type="primary">
+        <el-button class="w-32 border-0 text-white" round type="primary" @click="playAll">
           <IconPark :icon="PlayOne" size="22" class="mr-1"/>
           <span>播放全部</span>
         </el-button>
@@ -40,5 +40,6 @@ import type {PlayListDetail} from "@/models/playlist";
 
 defineProps<{
   playlist: PlayListDetail,
+  playAll?: () => void,
 }>()
 </script>

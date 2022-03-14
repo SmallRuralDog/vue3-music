@@ -2,7 +2,7 @@
   <div class="flex items-center justify-center gap-x-3">
     <IconPark :icon="loopType===0?PlayOnce:loopType===1?LoopOnce:ShuffleOne" size="20" :stroke-width="3"
               class="hover-text" @click="toggleLoop"/>
-    <IconPark :icon="GoStart" size="28" theme="filled" class="hover-text"/>
+    <IconPark :icon="GoStart" size="28" theme="filled" class="hover-text" @click="prev"/>
     <IconPark :icon="isPause?PauseOne:Play" size="45" theme="filled" class="hover-text text-emerald-400"
               @click="togglePlay"/>
     <IconPark :icon="GoEnd" size="28" class="hover-text" @click="next"/>
@@ -24,7 +24,7 @@ import PlayerVolumeSlider from "@/components/layout/footer/PlayerVolumeSlider.vu
 import {usePlayerStore} from "@/stores/player";
 
 
-const {toggleLoop, loopType, next, togglePlay, isPause} = toRefs(usePlayerStore())
+const {toggleLoop, loopType, next,prev, togglePlay, isPause} = toRefs(usePlayerStore())
 
 </script>
 
