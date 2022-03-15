@@ -1,6 +1,6 @@
 import type {Banner} from "@/models/banner";
 import type {DjProgram, Personalized, PersonalizedMv, PersonalizedNewSong} from "@/models/personalized";
-import type {PlayListDetail} from "@/models/playlist";
+import type {PlayListDetail, PlaylistHighqualityTag} from "@/models/playlist";
 import type {PlayListCat} from "@/models/playlist_cat";
 import type {Song} from "@/models/song";
 import type {SongUrl} from "@/models/song_url";
@@ -12,6 +12,7 @@ import type {Album} from "@/models/album";
 import type {PersonalizedPrivateContent, Video, VideoGroup} from "@/models/video";
 import type {SearchHotDetail, SearchSuggest} from "@/models/search";
 import type {MvUrl} from "@/models/mv";
+import type {PlayListHot} from "@/models/playlist_hot";
 
 
 export async function useSongUrl(id: number) {
@@ -156,4 +157,22 @@ export async function useMvDetail(mvid: number) {
 export async function useMvUrl(id: number) {
     const {data} = await http.get<{ data: MvUrl }>("mv/url", {id: id})
     return data
+}
+
+
+export async function usePlaylistHighqualityTags() {
+    const {tags} = await http.get<{ tags: PlaylistHighqualityTag[] }>("playlist/highquality/tags")
+
+    return tags
+}
+
+export async function usePlaylistHot() {
+    const {tags} = await http.get<{ tags: PlayListHot[] }>("playlist/hot")
+
+    return tags
+}
+
+export async function useTopPlaylistHighquality(params?: { limit?: number, before?: number,cat:string }) {
+    return await http.get<{ playlists: PlayListDetail[], total: number, more: boolean, lasttime: number }>("top/playlist/highquality", params)
+
 }

@@ -4,6 +4,7 @@ export const Pages = {
     music: 'music',
     picked: 'picked',
     toplist: 'toplist',
+    category: 'category',
     artist: 'artist',
     playlist: 'playlist',
     artistDetail: 'artistDetail',

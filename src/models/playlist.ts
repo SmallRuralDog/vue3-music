@@ -207,3 +207,13 @@ export interface PlayListDetailTrackIds {
     rcmdReason: string;
     sc?: any;
 }
+
+
+
+export interface PlaylistHighqualityTag {
+	id: number;
+	name: string;
+	type: number;
+	category: number;
+	hot: boolean;
+}

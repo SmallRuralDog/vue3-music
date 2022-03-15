@@ -55,6 +55,16 @@ const router = createRouter({
                                 title: '歌手',
                                 keepAlive: true,
                             }
+                        },
+                        {
+                            path: Pages.category,
+                            name: Pages.category,
+                            component: () => import('@/views/music/category/Category.vue'),
+                            meta: {
+                                menu: 'music',
+                                title: '分类歌单',
+                                keepAlive: true,
+                            }
                         }
                     ]
                 },
