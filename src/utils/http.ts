@@ -3,15 +3,15 @@ import axios, {type AxiosRequestConfig} from "axios";
 axios.defaults.baseURL = localStorage.getItem('BASE_URL')?.toString();
 axios.defaults.timeout = 20 * 1000;
 axios.defaults.maxBodyLength = 5 * 1024 * 1024;
+axios.defaults.withCredentials = true
 
 axios.interceptors.request.use(
     (config: AxiosRequestConfig | any) => {
 
         config.params = {
             ...config.params,
-            t:Date.now(),
+            t: Date.now(),
         }
-
         return config;
     },
     function (error) {
