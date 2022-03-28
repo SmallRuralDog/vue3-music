@@ -26,6 +26,9 @@
 .bg-active {
   @apply bg-emerald-400 text-white;
 }
+.text-active{
+  @apply text-emerald-400;
+}
 
 .text-main {
   @apply text-slate-700;
