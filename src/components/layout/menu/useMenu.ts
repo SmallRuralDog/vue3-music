@@ -14,7 +14,7 @@ interface IMenus {
     menus: IMenu[],
 }
 
-export function userMenu() {
+export function useMenu() {
     const menus: IMenus[] = [
         {
             name: "在线音乐",
