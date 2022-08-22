@@ -19,10 +19,10 @@
 <script setup lang="ts">
 
 
-import {userMenu} from "@/components/layout/menu/useMenu";
+import {useMenu} from "@/components/layout/menu/useMenu";
 import IconPark from "@/components/common/IconPark.vue";
 
-const {menus, currentKey, click} = userMenu()
+const {menus, currentKey, click} = useMenu()
 
 </script>
 
