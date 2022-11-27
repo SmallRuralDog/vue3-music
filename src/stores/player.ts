@@ -21,7 +21,7 @@ export const usePlayerStore = defineStore({
         songUrl: {} as SongUrl,
         song: {} as Song,
         isPlaying: false, //是否播放中
-        isPause: false,//是否暂停
+        isPause: true,//是否暂停
         sliderInput: false,//是否正在拖动进度条
         ended: false,//是否播放结束
         muted: false,//是否静音
@@ -98,6 +98,7 @@ export const usePlayerStore = defineStore({
                 this.songUrl = data
                 this.url = data.url
                 this.id = id;
+                this.isPause = false
                 this.songDetail()
             }).catch(res => {
                 console.log(res)
