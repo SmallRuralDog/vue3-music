@@ -3,7 +3,7 @@
     <IconPark :icon="loopType===0?PlayOnce:loopType===1?LoopOnce:ShuffleOne" size="20" :stroke-width="3"
               class="hover-text" @click="toggleLoop"/>
     <IconPark :icon="GoStart" size="28" theme="filled" class="hover-text" @click="prev"/>
-    <IconPark :icon="isPause?PauseOne:Play" size="45" theme="filled" class="hover-text text-emerald-400"
+    <IconPark :icon="isPause?Play:PauseOne" size="45" theme="filled" class="hover-text text-emerald-400"
               @click="togglePlay"/>
     <IconPark :icon="GoEnd" size="28" class="hover-text" @click="next"/>
     <el-popover placement="top" width="50px">
